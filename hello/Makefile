@@ -14,7 +14,7 @@ define Package/hello
   TITLE:=Hello OpenWrt demo utility
   DEPENDS:=+libuci
   URL:= httt://bjbook.net/openwrt
-  MAINTAINER:=zhang <zyz323@163.com>
+  MAINTAINER:=zhang <unflypig12138@gmail.com>
 endef
 
 define Package/hello/description
