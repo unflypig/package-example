@@ -1,3 +1,3 @@
 
 all:
-  $(CC) hello.c -o hello -g -luci
+	$(CC) hello.c -o hello -g -luci
