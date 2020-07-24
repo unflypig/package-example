@@ -8,13 +8,18 @@
 #include "uci.h"
 
 //根据选项来访问服务器，
+//配置结构体，结构体成员与配置文件option对应
 struct Hello
 {
     char agent[50]; //  代理字符串。
     char url[256];  //  访问的url。
     int delay;      //  启动后延迟多长时间访问。
 };
-
+/*根据传入的配置文件option的key，查找对应的value*/
+//@ctx:该值是为接口分配空间的指针，类似于malloc
+//@key:要查询option的key
+//@value:查询到的key所对应的value值，存放指针
+//@n:拷贝n个字节到value
 int getValue(struct uci_context *ctx, char *key, char*value, int n)
 {
     char strKey[100];
