@@ -1,0 +1,32 @@
+#!/bin/sh /etc/rc.common
+# hello script
+# Copyright (C) zhangyz OpenWrt.org
+ 
+START=99
+USE_PROCD=1
+STOP=85
+BIN_NAME="openwrt-package-template"
+PROG=${BIN_NAME}
+
+#validate_hello_section()
+#{
+#	uci_validate_section hello system globe \
+#		'delay:range(1,200)' 
+#} 
+start_service() {
+    echo "Prog start!"
+    ${PROG} & echo $! > /var/run/${BIN_NAME}.pid
+}                 
+#service_triggers()
+#{
+#    procd_add_reload_trigger "hello"
+#}
+stop_service() {
+    pid="`cat /var/run/${BIN_NAME}.pid`"
+    kill -9 ${pid}
+}
+reload_service(){
+    stop
+    start
+}
+ 
